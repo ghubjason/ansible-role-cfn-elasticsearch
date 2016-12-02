@@ -1,4 +1,11 @@
 ---
+- name: Create necessary directories
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items:
+    - "{{ elasticsearch_build_path }}"
+
 - name: Create ElasticSearch Template
   template:
     src: es.json.j2
