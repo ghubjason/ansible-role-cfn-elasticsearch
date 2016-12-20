@@ -7,6 +7,11 @@
       "Type" : "String",
       "Default" : "m3.medium.elasticsearch"
     },
+    "ESVersion" : {
+      "Description" : "ElasticSearch Version - 1.5 or 2.3 (default)",
+      "Type" : "String",
+      "Default" : "2.3"
+    },
     "ESPublisherLambdaS3Bucket" : {
       "Type" : "String",
       "Description" : "S3 bucket of the lambda function that publishes logs to ElasticSearch"
@@ -91,6 +96,7 @@
         "SnapshotOptions" : {
           "AutomatedSnapshotStartHour" : { "Ref" : "ESSnapshotHour" }
         },
+        "ElasticsearchVersion" : { "Ref" : "ESVersion" },
         "ElasticsearchClusterConfig" : {
           "InstanceType" : { "Ref" : "ESInstanceType"},
           "InstanceCount" : { "Ref" : "ESInstanceCount" },
